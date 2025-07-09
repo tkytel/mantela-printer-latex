@@ -16,7 +16,6 @@ escapeLaTeX(s)
 	s = s || '';
 	convTab.forEach(v => {
 		s = s.replaceAll(v.from, v.to);
-		console.log(s);
 	});
 
 	return s;
