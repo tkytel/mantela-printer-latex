@@ -65,6 +65,12 @@ generateLaTeX(mantelas, options = { })
 
 		s.push(`\\section{${escapeLaTeX(v.aboutMe.name)}`);
 		s.push(`{\\small\\ttfamily ${escapeLaTeX(v.aboutMe.identifier)}}}`);
+		if (Array.isArray(v.aboutMe.preferredPrefix))
+			s.push('Preferred prefix'
+				+ (v.aboutMe.preferredPrefix.length > 1 ? 'es' : '')
+				+ `: ${v.aboutMe.preferredPrefix.join(', ')}`);
+		else
+			s.push(`Preferred prefix: ${v.aboutMe.preferredPrefix}`);
 		s.push(`\\begin{itemize}`);
 		v.extensions.forEach(e => {
 			s.push(`\\item ${e.extension}, ${escapeLaTeX(e.name)}, ${e.type}`);
